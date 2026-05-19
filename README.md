@@ -52,7 +52,7 @@ Run the following commands starting in the server directory:
 mvn clean package
 cd ..
 docker compose up --build
-
+````
 
 ## API Endpoints
 
