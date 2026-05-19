@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+
+  db:
+    image: postgres:15
+    container_name: ict-postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: ictdb
+    ports:
+      - "5432:5432"
+
+  app:
+    build: ./server
+    container_name: ict-app
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/ictdb
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin123
+    ports:
+      - "8080:8080"
