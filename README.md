@@ -46,8 +46,9 @@ The system consists of three main components:
 
 ### 1. Build and start all services
 
-Run the following commands starting in the server directory
+Run the following commands starting in the server directory:
 
+```bash
 mvn clean package
 cd ..
 docker compose up --build
