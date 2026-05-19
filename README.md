@@ -46,5 +46,33 @@ The system consists of three main components:
 
 ### 1. Build and start all services
 
-```bash
+
+
 docker compose up --build
+
+
+## API Endpoints
+
+All endpoints are accessible via `http://localhost:8080`.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/message` | Accepts a `text` parameter and stores the message in PostgreSQL. |
+| GET | `/messages` | Retrieves all stored messages and returns them in JSON format. |
+| GET | `/health` | Checks that the service is running and responsive. |
+| GET | `/test-error` | Intentionally triggers a runtime exception to demonstrate error handling, logging, and system behavior under failure conditions. |
+
+### Example Requests
+
+```bash
+# Store a message
+curl -X POST http://localhost:8080/message -d "text=Hello world"
+
+# Get all messages
+curl http://localhost:8080/messages
+
+# Health check
+curl http://localhost:8080/health
+
+# Trigger test error
+curl http://localhost:8080/test-error
