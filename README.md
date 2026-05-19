@@ -40,6 +40,7 @@ The system consists of three main components:
 - Docker Compose
 - Maven
 
+
 ---
 
 ## How to Run the Project
